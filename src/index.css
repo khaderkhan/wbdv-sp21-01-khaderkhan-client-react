@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.font-awesome-icon {
+  color: white;
+}
+
+.font-awesome-icon-bottom {
+  color: red;
+  padding: 20px;
+}
+
+.wbdv-sticky-top {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+}
+.wbdv-padding-5px {
+  padding: 5px;
+  background-color: blueviolet;
+}
+.placeholder-navbar{
+  font-size: 20px;
+  font-family: FontAwesome;
+}

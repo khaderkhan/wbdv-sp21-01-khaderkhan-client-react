@@ -47,17 +47,22 @@ export default class CourseManager
     }
 
     addCourse = () => {
-        // alert('add course')
         const newCourse = {
-            title: "New Course",
             owner: "me",
             lastModified: "2/10/2021"
         }
-        courseService.createCourse(newCourse)
-            .then(actualCourse => {
-                this.state.courses.push(actualCourse)
-                this.setState(this.state)
-            })
+        const newCourseTitle = document.getElementById('course-title-id').value
+        newCourse["title"] = newCourseTitle
+        if(newCourseTitle){
+            courseService.createCourse(newCourse)
+                .then(actualCourse => {
+                    this.state.courses.push(actualCourse)
+                    this.setState(this.state)
+                })
+            document.getElementById('course-title-id').value = ""
+        }
+
+
     }
 
     render() {
@@ -66,10 +71,32 @@ export default class CourseManager
                 <Link to="/">
                     <i className="fas fa-2x fa-home float-right"></i>
                 </Link>
-                <h1>Course Manager</h1>
-                <button onClick={this.addCourse}>
-                    Add Course
-                </button>
+                {/*<h1>Course Manager</h1>*/}
+                {/*<button onClick={this.addCourse}>*/}
+                {/*    Add Course*/}
+                {/*</button>*/}
+
+                <div className="wbdv-sticky-top wbdv-padding-5px">
+                    <div className="row">
+                        <div className="col-1">
+                            <i className="fa fa-bars fa-2x"></i>
+                        </div>
+                        <div className="col-2">
+                            <h4 className="nav-text">Course Manager</h4>
+                        </div>
+                        <div className="col-8">
+                            <input className="form-control" placeholder="New Course Title"
+                                   className="placeholder-navbar col-8"
+                                   id="course-title-id"
+                            />
+                        </div>
+                        <div className="col-1">
+                            <i onClick={() => this.addCourse()} className="fa fa-plus-circle fa-2x font-awesome-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <br/>
 
                 {/*<Route path="/courses/table" component={CourseTable}/>*/}
                 <Route path="/courses/table" exact={true} >
@@ -80,10 +107,19 @@ export default class CourseManager
                 </Route>
                 {/*<Route path="/courses/grid" component={CourseGrid}/>*/}
                 <Route path="/courses/grid" exact={true} >
-                    <CourseGrid courses={this.state.courses}/>
+                    <CourseGrid
+                        updateCourse={this.updateCourse}
+                        courses={this.state.courses}
+                        deleteCourse={this.deleteCourse}
+                    />
                 </Route>
                 {/*<CourseTable courses={this.state.courses}/>*/}
                 {/*<CourseGrid courses={this.state.courses}/>*/}
+                <div className="fixed-bottom">
+                    <a className="float-right" href="#">
+                        <i onClick={() => this.addCourse()} className="fa fa-plus-circle fa-2x font-awesome-icon-bottom"></i>
+                    </a>
+                </div>
             </div>
         )
     }
