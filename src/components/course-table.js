@@ -12,17 +12,17 @@ export default class CourseTable extends
 
     render() {
         return(
-            <div>
-                <table className="table">
+            <div class="container">
+                <table className="table table-striped">
                     <thead>
                     {/*<CourseHeader view="grid"/>*/}
                     <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Owned By</th>
-                        <th scope="col">Last Modified</th>
-                        <th scope="col">
+                        <th className="w-25 col-md-12">Title</th>
+                        <th className="w-25 col-md-4">Owned By</th>
+                        <th className="w-25 col-md-4">Last Modified</th>
+                        <th className="w-25 col-md-4">
                             <div>
-                                <i className="fas fa-folder"></i>
+                                <i className="mr-2 fas fa-folder"></i>
                                 <i className="fas fa-sort-alpha-up-alt"></i>
                                 <Link to="/courses/grid">
                                     <i className="fas fa-th float-right fa-2x"></i>
