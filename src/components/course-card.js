@@ -33,19 +33,8 @@ const CourseCard = (
 
             <p className="card-text">
                 <div>
-                    {/*<i className="fa fa-sticky-note course-icon"></i>{" "}*/}
-                    {/*<Link to={`/course/${course.id}/edit`}*/}
-                    {/*      className="course-title">*/}
-                    {/*    {course.title}*/}
-                    {/*</Link>*/}
-                    {/*<Link to={`/course/${course.id}/edit`} className="course-title">*/}
-                    {/*    <i className="fa fa-edit ml-2"></i>*/}
-                    {/*</Link>*/}
                     Some Course Description here
                 </div>
-                {/*<span className="date-sub-header">*/}
-                {/*                    Opened at 6:45pm*/}
-                {/*                </span> {" "}*/}
 
             </p>
             <div>

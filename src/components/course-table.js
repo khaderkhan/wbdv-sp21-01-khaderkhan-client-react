@@ -12,15 +12,14 @@ export default class CourseTable extends
 
     render() {
         return(
-            <div class="container">
+            <div className="container">
                 <table className="table table-striped">
                     <thead>
-                    {/*<CourseHeader view="grid"/>*/}
                     <tr>
-                        <th className="w-25 col-md-12">Title</th>
-                        <th className="w-25 col-md-4">Owned By</th>
-                        <th className="w-25 col-md-4">Last Modified</th>
-                        <th className="w-25 col-md-4">
+                        <th className="w-25 col-sm-6 col-xs-12">Title</th>
+                        <th className="w-25 d-none d-sm-table-cell">Owned By</th>
+                        <th className="w-25 d-none d-sm-table-cell">Last Modified</th>
+                        <th className="w-25 d-none d-sm-table-cell">
                             <div>
                                 <i className="mr-2 fas fa-folder"></i>
                                 <i className="fas fa-sort-alpha-up-alt"></i>
@@ -32,10 +31,6 @@ export default class CourseTable extends
                     </tr>
                     </thead>
                     <tbody>
-                    {/*<CourseRow title="CS5610" owner="me"/>*/}
-                    {/*<CourseRow title="CS3200" owner="you"/>*/}
-                    {/*<CourseRow title="CS5200" owner="him"/>*/}
-                    {/*<CourseRow title="CS4550" owner="she"/>*/}
                     {
                         this.props.courses.map(course =>
                             <CourseRow
