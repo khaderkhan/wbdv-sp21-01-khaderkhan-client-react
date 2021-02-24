@@ -16,10 +16,11 @@ export default class CourseTable extends
                 <table className="table table-striped">
                     <thead>
                     <tr>
-                        <th className="w-25 col-sm-6 col-xs-12">Title</th>
-                        <th className="w-25 d-none d-sm-table-cell">Owned By</th>
-                        <th className="w-25 d-none d-sm-table-cell">Last Modified</th>
-                        <th className="w-25 d-none d-sm-table-cell">
+                        {/*<div className="row">*/}
+                        <th className="w-25 col-sm-6 col-xs-6">Title</th>
+                        <th className="w-25 d-none d-md-table-cell">Owned By</th>
+                        <th className="w-25 d-none d-lg-table-cell">Last Modified</th>
+                        <th className="w-25 col-sm-6 col-xs-6">
                             <div>
                                 <i className="mr-2 fas fa-folder"></i>
                                 <i className="fas fa-sort-alpha-up-alt"></i>
@@ -28,6 +29,7 @@ export default class CourseTable extends
                                 </Link>
                             </div>
                         </th>
+                        {/*</div>*/}
                     </tr>
                     </thead>
                     <tbody>
