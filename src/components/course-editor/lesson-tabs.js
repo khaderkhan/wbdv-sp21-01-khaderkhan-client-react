@@ -35,7 +35,7 @@ const LessonTabs = (
                             {/* /courses/${layout}/edit/${courseId}/modules/${module._id} */}
                             {/* /courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId */}
                           <EditableItem
-                            style={{paddingRight: "5px"}}
+                            className="padding-5px"
                             active={lesson._id === lessonId}
                             to={`/courses/${layout}/edit/${courseId}/${courseName}/modules/${moduleId}/lessons/${lesson._id}`}
                             deleteItem={deleteLesson}

@@ -10,20 +10,17 @@ const topicReducer = (state=initialState, action) => {
                 topics: action.topics
             }
         case "CREATE_TOPIC":
-            console.log("create Topic====>>>", action.topic, state.topics)
             const newState = {
                 topics: [
                     ...state.topics,
                     action.topic
                 ]
             }
-            console.log("newState====>>", newState)
             return newState
         case "DELETE_TOPIC":
-            console.log("aacrti0000==>", action)
             const newState1 = {
                 topics: state.topics.filter(topic => {
-                    if(topic._id === action.topicToDelete._id) { // FIX THIS LINE WHEN DONE (moduleToDelete)
+                    if(topic._id === action.topicToDelete._id) { 
                         return false
                     } else {
                         return true
@@ -32,7 +29,6 @@ const topicReducer = (state=initialState, action) => {
             }
             return newState1
         case "UPDATE_TOPIC":
-            console.log("aaction-=====>>", action)
             return {
                 topics: state.topics.map(m => {
                     if(m._id === action.updateTopic._id) {
