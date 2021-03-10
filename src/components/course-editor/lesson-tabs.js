@@ -12,7 +12,7 @@ const LessonTabs = (
         updateLesson,
         deleteLesson,
     }) => {
-    const {courseId, moduleId, lessonId, layout} = useParams();
+    const {courseId, courseName, moduleId, lessonId, layout} = useParams();
     useEffect(() => {
         console.log("LOAD LESSONS FOR MODULE: " + moduleId)
         if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
@@ -35,8 +35,9 @@ const LessonTabs = (
                             {/* /courses/${layout}/edit/${courseId}/modules/${module._id} */}
                             {/* /courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId */}
                           <EditableItem
+                            style={{paddingRight: "5px"}}
                             active={lesson._id === lessonId}
-                            to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
+                            to={`/courses/${layout}/edit/${courseId}/${courseName}/modules/${moduleId}/lessons/${lesson._id}`}
                             deleteItem={deleteLesson}
                             updateItem={updateLesson} 
                             item={lesson}/>
@@ -44,7 +45,7 @@ const LessonTabs = (
                 )
             }
             <li>
-                <i onClick={() => createLessonForModule(moduleId)} className="fas fa-plus"></i>
+                <i onClick={() => createLessonForModule(moduleId)} className="icon icon-pad fas fa-plus"></i>
             </li>
         </ul>
     </div>)}

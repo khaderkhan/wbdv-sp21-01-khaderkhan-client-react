@@ -16,11 +16,11 @@ const EditableItem = (
             {
                 !editing &&
                 <>
-                <div className="editable-row-class">
+                <div className="row editablePadding">
                     <Link className={`nav-link ${active?'active':''}`} to={to}>
                         {item.title}
                     </Link>
-                    <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
+                    <i onClick={() => setEditing(true)} className="icon icon-left-pad fas fa-edit"></i>
                 </div>
                 </>
             }
@@ -38,7 +38,7 @@ const EditableItem = (
                         setEditing(false)
                         updateItem(cachedItem)
                     }} className="fas fa-check"></i>
-                    <i onClick={() => deleteItem(item)} className="fas fa-times"></i>
+                    <i onClick={() => deleteItem(item)} className="icon fas fa-times"></i>
                 </>
             }
         </>

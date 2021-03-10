@@ -12,10 +12,10 @@ function App() {
           <Route path="/courses" component={CourseManager}/>
           {/* <Route path="/editor" exact={true} render={(props) => <CourseEditor {...props}/>}/> */}
           <Route path={[
-              "/courses/:layout/edit/:courseId",
-              "/courses/:layout/edit/:courseId/modules/:moduleId",
-              "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
-              "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
+              "/courses/:layout/edit/:courseId/:courseName",
+              "/courses/:layout/edit/:courseId/:courseName/modules/:moduleId",
+              "/courses/:layout/edit/:courseId/:courseName/modules/:moduleId/lessons/:lessonId",
+              "/courses/:layout/edit/:courseId/:courseName/modules/:moduleId/lessons/:lessonId/topics/:topicId",
           ]}
                  exact={true}
                  render={(props) => <CourseEditor {...props}/>}/>

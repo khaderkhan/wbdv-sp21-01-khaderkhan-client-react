@@ -13,7 +13,7 @@ const ModuleList = (
         updateModule,
         findModulesForCourse=(courseId) => console.log(courseId)
     }) => {
-        const {layout, courseId, moduleId} = useParams();
+        const {layout, courseId, moduleId, courseName} = useParams();
     useEffect(() => {
         // alert(courseId)
         findModulesForCourse(courseId)
@@ -32,7 +32,7 @@ const ModuleList = (
                             active={true}
                             item={module}/> */}
                              <EditableItem
-                            to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
+                            to={`/courses/${layout}/edit/${courseId}/${courseName}/modules/${module._id}`}
                             deleteItem={deleteModule}
                             updateItem={updateModule}
                             active={true}

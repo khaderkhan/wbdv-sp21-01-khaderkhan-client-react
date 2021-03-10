@@ -37,7 +37,27 @@
   }
 }
 
-.editable-row-class {
-  display: inline-flex;
-  vertical-align: middle;
+/* .icon-align-middle {
+  margin-top: 10px;
+} */
+.icon {
+  margin-top: 10px;
+  padding-left: 10px;
 }
+.icon-pad {
+  padding-left: 5px;
+}
+.icon-left-pad {
+  padding-right: 10px;
+}
+
+.editablePadding {
+  padding-right: 10px;
+}
+
+/* .icon-margin {
+  margin-top: 10px;
+}
+.icon-padding {
+  padding-left: 10px;
+} */
