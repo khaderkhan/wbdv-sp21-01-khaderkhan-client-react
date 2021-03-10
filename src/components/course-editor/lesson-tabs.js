@@ -6,17 +6,13 @@ import lessonService from '../../services/lesson-service'
 
 const LessonTabs = (
     {
-        lessons=[
-            {_id: "123", title: "Lesson A"},
-            {_id: "234", title: "Lesson B"},
-            {_id: "345", title: "Lesson C"}
-        ],
+        lessons=[],
         findLessonsForModule,
         createLessonForModule,
         updateLesson,
         deleteLesson,
     }) => {
-    const {courseId, moduleId, lessonId} = useParams();
+    const {courseId, moduleId, lessonId, layout} = useParams();
     useEffect(() => {
         console.log("LOAD LESSONS FOR MODULE: " + moduleId)
         if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
@@ -30,9 +26,17 @@ const LessonTabs = (
             {
                 lessons.map(lesson =>
                     <li className="nav-item">
-                        <EditableItem
+                        {/* <EditableItem
                             active={lesson._id === lessonId}
                             to={`/courses/editor/${courseId}/${moduleId}/${lesson._id}`}
+                            deleteItem={deleteLesson}
+                            updateItem={updateLesson} 
+                            item={lesson}/> */}
+                            {/* /courses/${layout}/edit/${courseId}/modules/${module._id} */}
+                            {/* /courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId */}
+                          <EditableItem
+                            active={lesson._id === lessonId}
+                            to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                             deleteItem={deleteLesson}
                             updateItem={updateLesson} 
                             item={lesson}/>
@@ -69,7 +73,7 @@ const dtpm = (dispatch) => ({
     },
     updateLesson: (newItem) => {
         lessonService.updateLesson(newItem._id, newItem)
-            .then(status => dispatch({type: "UPDATE_LESSON", updateModule: newItem}))
+            .then(status => dispatch({type: "UPDATE_LESSON", updateLesson: newItem}))
     },
     deleteLesson: (lessonToDelete) => {
         lessonService.deleteLesson(lessonToDelete._id)

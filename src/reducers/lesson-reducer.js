@@ -19,23 +19,25 @@ const lessonReducer = (state=initialState, action) => {
             }
 
         case "DELETE_LESSON":
-             alert("delete the lesson " + action)
-            const newState1 = {
-                modules: state.lessons.filter(lesson => {
+            return {
+                lessons: state.lessons.filter(lesson => {
                     if(lesson._id === action.lessonToDelete._id) {
+                        console.log("deleting lesson here", lesson._id)
                         return false
                     } else {
                         return true
                     }
                 })
             }
-            return newState1
+            
         case "UPDATE_LESSON":
-            console.log("update the lesson ", JSON.stringify(action))
+            const actionLesson = (action)
+            console.log("update the lesson ", actionLesson, typeof actionLesson, state.lessons)
             return {
                 lessons: state.lessons.map(l => {
-                    if(l._id === action.lesson._id) {
-                        return action.lesson
+                    if(l._id === actionLesson.updateLesson._id) {
+                        console.log("here===>>", actionLesson.updateLesson)
+                        return actionLesson.updateLesson
                     } else {
                         return l
                     }
