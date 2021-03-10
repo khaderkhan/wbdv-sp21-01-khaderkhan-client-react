@@ -15,11 +15,11 @@ const TopicPills = (
     }) => {
     const {courseId, courseName, moduleId, lessonId, topicId, layout} = useParams();
     useEffect(() => {
-        console.log("LOAD TOPICS FOR LESSON: " + lessonId)
+        console.log("LOAD TOPICS FOR LESSON: " + lessonId, topicId)
         if(lessonId !== "undefined" && typeof lessonId !== "undefined") {
             findTopicsForLesson(lessonId)
         }
-    }, [lessonId])
+    }, [moduleId, lessonId])
     return(
     <div>
         {/* <h2>Topics</h2> */}

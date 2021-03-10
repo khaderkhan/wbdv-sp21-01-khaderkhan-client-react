@@ -43,6 +43,7 @@
 .icon {
   margin-top: 10px;
   padding-left: 10px;
+  padding-right: 20px;
 }
 .icon-pad {
   padding-left: 5px;
@@ -52,7 +53,7 @@
 }
 
 .editablePadding {
-  padding-right: 10px;
+  padding-right: 15px;
 }
 
 .padding-5px{
