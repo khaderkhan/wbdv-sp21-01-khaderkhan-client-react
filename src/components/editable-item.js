@@ -16,10 +16,12 @@ const EditableItem = (
             {
                 !editing &&
                 <>
+                <div className="editable-row-class">
                     <Link className={`nav-link ${active?'active':''}`} to={to}>
                         {item.title}
                     </Link>
                     <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
+                </div>
                 </>
             }
             {
