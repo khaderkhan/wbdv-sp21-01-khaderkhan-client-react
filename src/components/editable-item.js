@@ -10,7 +10,7 @@ const EditableItem = (
         active
     }) => {
     const [editing, setEditing] = useState(false)
-    const [cachedItem, setCahedItem] = useState(item)
+    const [cachedItem, setCahedItem] = useState(item) 
     return (
         <>
             {

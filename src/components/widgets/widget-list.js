@@ -17,6 +17,9 @@ const WidgetList = ({
 }) => {
     const {topicId, moduleId, lessonId} = useParams();
     const [editingWidget, setEditingWidget] = useState({});
+
+    //const [widgets, setWidgets] = useState([])
+    const [widget, setWidget] = useState({})
     useEffect(() => {
         // TODO: move server communication to widget-service.js
         // fetch("http://localhost:8080/api/widgets")
@@ -67,7 +70,7 @@ const WidgetList = ({
         <div>
             <i onClick={() => createWidgetForTopic(topicId)} className="fas fa-plus fa-2x float-right"></i>
             <h2>Widget List </h2>
-            <ul className="list-group">
+            {/* <ul className="list-group">
                 {
                     widgets.map(widget =>
                     <li className="list-group-item" key={widget.id}>
@@ -84,7 +87,7 @@ const WidgetList = ({
                             editingWidget.id !== widget.id &&
                             <i onClick={() => setEditingWidget(widget)} className="fas fa-2x fa-cog float-right"></i>
                         }
-                        {
+                        {   
                             widget.type === "HEADING" &&
                             <HeadingWidget
                                 editing={editingWidget.id === widget.id}
@@ -103,7 +106,45 @@ const WidgetList = ({
                     </li>
                     )
                 }
+            </ul> */}
+
+            <ul className="list-group">
+                {
+                    widgets.map(_widget =>
+                        <li key={_widget.id} className="list-group-item">
+                            {
+                                _widget.id === widget.id &&
+                                    <>
+                                        <i onClick={() => deleteWidget(_widget.id)} className="fas fa-trash float-right"></i>
+                                        <i onClick={() => {
+                                            updateWidget(_widget.id, widget)
+                                        }} className="fas fa-check float-right"></i>
+                                    </>
+                            }
+                            {
+                                _widget.id !== widget.id &&
+                                <i onClick={() => setWidget(_widget)} className="fas fa-cog float-right"></i>
+                            }
+                            {
+                                _widget.type === "HEADING" &&
+                                <HeadingWidget
+                                    setWidget={setWidget}
+                                    editing={_widget.id === widget.id}
+                                    widget={widget}/>
+                            }
+                            {
+                                _widget.type === "PARAGRAPH" &&
+                                <ParagraphWidget
+                                    setWidget={setWidget}
+                                    editing={_widget.id === widget.id}
+                                    widget={_widget}/>
+                            }
+                        </li>
+                    )
+                }
             </ul>
+
+
             {/* {JSON.stringify(widgets)} */}
         </div>
     )
@@ -134,9 +175,11 @@ const dtpm = (dispatch) => ({
                 widget
             }))
     },
-    updateWidget: (wid, widget, widget2) => {
-        console.log("updateWidget====>>>", widget)
-        console.log("hello", widget2)
+    updateWidget: (wid, widget, temp) => {
+        // Object.keys(widget).map((key, index) => {
+        //     // console.log(key)
+        //     console.log(key === "type")
+        // })
         widgetService.updateWidget(wid, widget)
             .then(widget => dispatch({type: "UPDATE_WIDGET", updateWidget: widget}))
     },
