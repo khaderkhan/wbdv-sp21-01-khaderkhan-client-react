@@ -11,16 +11,17 @@ const widgetReducer = (state=initialState, action) => {
             }
         case "CREATE_WIDGET":
             const newState = {
-                topics: [
+                widgets: [
                     ...state.widgets,
                     action.widget
                 ]
             }
             return newState
         case "DELETE_WIDGET":
+            console.log("del widget reducer===>>", action)
             const newState1 = {
                 widgets: state.widgets.filter(widget => {
-                    if(widget._id === action.widgetToDelete._id) { 
+                    if(widget.id === action.widgetToDelete) { 
                         return false
                     } else {
                         return true

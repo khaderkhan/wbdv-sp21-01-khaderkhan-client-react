@@ -36,6 +36,7 @@ const ModuleList = (
                             deleteItem={deleteModule}
                             updateItem={updateModule}
                             active={true}
+                            onClick={() => this.props.emptyTopics()}
                             item={module}/>
                     </li>
                 )
@@ -48,7 +49,7 @@ const ModuleList = (
 
 const stpm = (state) => {
     return {
-        myModules: state.moduleReducer.modules
+        myModules: state.moduleReducer.modules,
     }   
 }
 const dtpm = (dispatch) => {
@@ -59,6 +60,9 @@ const dtpm = (dispatch) => {
                     type: "CREATE_MODULE",
                     module: theActualModule
                 }))
+        },
+        emptyTopics: () => {
+            dispatch({type: "EMPTY_TOPIC"})
         },
         deleteModule: (item) =>
             moduleService.deleteModule(item._id)
@@ -80,6 +84,7 @@ const dtpm = (dispatch) => {
                     modules: theModules
                 }))
         }
+        
     }
 }
 

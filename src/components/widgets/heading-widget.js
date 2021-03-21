@@ -1,13 +1,14 @@
 import React from 'react'
 
 const HeadingWidget = ({widget, editing}) => {
+    console.log("widget in HEading widget====>>>", widget, editing)
     return(
         <>
             {
                 editing &&
                     <>
-                        <input value={widget.text} className="form-control"/>
-                        <select value={widget.size} className="form-control">
+                        <input defaultValue={widget.text} className="form-control"/>
+                        <select defaultValue={widget.size} className="form-control">
                             <option value={1}>Heading 1</option>
                             <option value={2}>Heading 2</option>
                             <option value={3}>Heading 3</option>

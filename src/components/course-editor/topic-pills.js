@@ -12,14 +12,33 @@ const TopicPills = (
         createTopic,
         updateTopic,
         deleteTopic,
+        refreshTopic,
     }) => {
     const {courseId, courseName, moduleId, lessonId, topicId, layout} = useParams();
+    
     useEffect(() => {
         console.log("LOAD TOPICS FOR LESSON: " + lessonId, topicId)
+        //topics=[]
+        //console.log("calling refresh topics===>>>")
+        refreshTopic()
         if(lessonId !== "undefined" && typeof lessonId !== "undefined") {
             findTopicsForLesson(lessonId)
         }
-    }, [moduleId, lessonId])
+        //
+
+    }, [lessonId, moduleId])
+
+    // useEffect(() => {
+    //     console.log("LOAD TOPICS FOR LESSON: " + lessonId, topicId)
+    //     //topics=[]
+    //     //if(lessonId !== "undefined" && typeof lessonId !== "undefined") {
+    //    // refreshTopic()
+    //     //}
+    //     //
+
+    // }, [moduleId])
+
+
     return(
     <div>
         {/* <h2>Topics</h2> */}
@@ -57,8 +76,8 @@ const stpm = (state) => ({
 
 const dtpm = (dispatch) => ({
     findTopicsForLesson: (lessonId) => {
-        console.log("LOAD TOPICS FOR LESSON:")
-        console.log(lessonId)
+        //console.log("LOAD TOPICS FOR LESSON:")
+        //console.log(lessonId)
         topicService.findTopicsForLesson(lessonId)
             .then(topics => dispatch({
                 type: "FIND_TOPICS_FOR_LESSON",
@@ -82,6 +101,10 @@ const dtpm = (dispatch) => ({
         topicService.deleteTopic(topicToDelete._id)
             .then(status => dispatch({type: "DELETE_TOPIC", topicToDelete: topicToDelete}))
     },
+    refreshTopic: () => {
+        console.log("calling dispatchhh====>>>")
+        dispatch({type: "REFRESH"})
+    }
 
 })
 

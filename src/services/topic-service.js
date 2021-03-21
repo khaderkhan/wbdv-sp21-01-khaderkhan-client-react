@@ -33,7 +33,12 @@ export const deleteTopic = (topicId) =>
     })
         .then(response => response.json());
 
+export const refreshTopic = () => {
+    return 
+}
+     
+
 
 export default {
-    createTopic, findTopicsForLesson, updateTopic, deleteTopic
+    createTopic, findTopicsForLesson, updateTopic, deleteTopic, refreshTopic
 }
