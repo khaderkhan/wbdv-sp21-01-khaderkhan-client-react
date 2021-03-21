@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const HeadingWidget = ({widget, setWidget, editing}) =>
+const HeadingWidget = ({widget, setWidget, editing, updateWidget, deleteWidget}) =>
     <div>
         {/* <h2>Heading Widget {widget.id}</h2> */}
 
@@ -14,6 +14,12 @@ const HeadingWidget = ({widget, setWidget, editing}) =>
         {
             editing &&
             <div>
+            <select onChange={(e) => setWidget(widget => ({...widget, type: e.target.value}))} value={widget.type} className="form-control">
+                                                <option value={"HEADING"}>Heading</option>
+                                                <option value={"PARAGRAPH"}>Paragraph</option>
+
+             </select>
+
                 <input onChange={(e) => setWidget(widget => ({...widget, text: e.target.value}))} value={widget.text} className="form-control"/>
                 <select onChange={(e) => setWidget(widget => ({...widget, size: parseInt(e.target.value)}))} value={widget.size} className="form-control">
                     <option value={1}>Heading 1</option>

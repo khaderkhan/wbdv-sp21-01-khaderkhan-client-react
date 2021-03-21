@@ -32,7 +32,11 @@ export const deleteWidget = (wid) =>
     })
         .then(response => response.json());
 
+export const refreshWidget = () => {
+    return 
+}
+
 
 export default {
-    createWidget, findWidgetsForTopic, updateWidget, deleteWidget
+    createWidget, findWidgetsForTopic, updateWidget, deleteWidget, refreshWidget
 }

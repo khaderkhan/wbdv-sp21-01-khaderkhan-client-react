@@ -18,7 +18,6 @@ const widgetReducer = (state=initialState, action) => {
             }
             return newState
         case "DELETE_WIDGET":
-            console.log("del widget reducer===>>", action)
             const newState1 = {
                 widgets: state.widgets.filter(widget => {
                     if(widget.id === action.widgetToDelete) { 
@@ -30,7 +29,6 @@ const widgetReducer = (state=initialState, action) => {
             }
             return newState1
         case "UPDATE_WIDGET":
-            console.log("updated widget", action.updateWidget)
             return {
                 widgets: state.widgets.map(m => {
                     if(m._id === action.updateWidget._id) {
@@ -40,6 +38,13 @@ const widgetReducer = (state=initialState, action) => {
                     }
                 })
             }
+        
+        case "REFRESH":
+            const newState2 = {
+                widgets: []
+            }
+            return newState2
+
         default:
             return state
     }

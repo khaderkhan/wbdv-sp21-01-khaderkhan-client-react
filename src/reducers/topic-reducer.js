@@ -5,12 +5,11 @@ const initialState = {
 const topicReducer = (state=initialState, action) => {
     switch (action.type) {
         case "FIND_TOPICS_FOR_LESSON":
-            const messesUpState = {
+            const lesson_topics = {
                 ...state,
                 topics: action.topics
             }
-            console.log("messesUpState===>>>", messesUpState)
-            return messesUpState
+            return lesson_topics
         case "CREATE_TOPIC":
             const newState = {
                 topics: [
@@ -41,7 +40,6 @@ const topicReducer = (state=initialState, action) => {
                 })
             }
         case "REFRESH":
-            console.log("refreshhh reducerrrr====>>>>>",action)
                 const newState2 = {
                     topics: []
                 }

@@ -1,14 +1,21 @@
 import React, {useState, useEffect} from 'react'
 
-const ParagraphWidget = ({widget, setWidget, editing}) => {
-    return (
+const ParagraphWidget = ({widget, setWidget, editing, updateWidget, deleteWidget}) => 
         <div>
             {
                 editing &&
+                <>
+                <select onChange={(e) => setWidget(widget => ({...widget, text: e.target.value}))} value={widget.type} className="form-control">
+                                                <option value={"HEADING"}>Heading</option>
+                                                <option value={"PARAGRAPH"}>Paragraph</option>
+
+                </select>
+
                 <textarea
-                    onChange={(e) => setWidget({...widget, text: e.target.value})}
+                    onChange={(e) => setWidget(widget => ({...widget, text: e.target.value}))}
                     value={widget.text}
                     className="form-control"></textarea>
+                </>
             }
             {
                 !editing &&
@@ -17,7 +24,6 @@ const ParagraphWidget = ({widget, setWidget, editing}) => {
                     </p>
             }
         </div>
-    )
-}
+
 
 export default ParagraphWidget
