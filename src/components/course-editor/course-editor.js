@@ -50,9 +50,10 @@ const CourseEditor = ({history}) => {
                     <div className="row">
                         <TopicPills/>
                     </div>
-                    <div className="row">
+                    <WidgetList/>
+                    {/* <div className="row">
                         <WidgetList/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
