@@ -17,7 +17,7 @@ const ImageWidget = ({widget, setWidget, editing}) => {
 
                     <div>
                         URL
-                        <input value={widget.url} className="form-control"/>
+                        <input value={widget.url} className="form-control" placeholder="Image URL"/>
                         width
                         <input value={widget.width} className="form-control"/>
                         height
@@ -25,6 +25,12 @@ const ImageWidget = ({widget, setWidget, editing}) => {
                     </div>
                 </div>
             }
+             {
+                            !editing &&
+                            <>
+                                <img src={widget.src} width={widget.width} height={widget.height}></img>
+                            </>
+                        }
         </div>
     )
 }
