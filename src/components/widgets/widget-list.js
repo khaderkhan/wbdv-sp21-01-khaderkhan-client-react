@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {connect} from "react-redux";
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 import {useParams} from "react-router-dom";
 // import topicService from '../../services/topic-service'
 import widgetService from "../../services/widget-service"
@@ -67,6 +69,24 @@ const WidgetList = ({
                                     widget={_widget}/>
                                     
                             }
+                            {
+                                _widget.type === "LIST" &&
+                                <ListWidget
+                                    setWidget={setWidget}
+                                    editing={_widget.id === widget.id}
+                                    updateWidget={widget.id, widget} 
+                                    deleteWidget={widget} 
+                                    widget={_widget}/>
+                            }
+                            {
+                                _widget.type === "IMAGE" &&
+                                <ImageWidget
+                                    setWidget={setWidget}
+                                    editing={_widget.id === widget.id}
+                                    updateWidget={widget.id, widget} 
+                                    deleteWidget={widget} 
+                                    widget={_widget}/>
+                            }
                         </li>
                     )
                 }
@@ -107,6 +127,7 @@ const dtpm = (dispatch) => ({
         //     // console.log(key)
         //     console.log(key === "type")
         // })
+        console.log("widget in here====>>>", widget)
         widgetService.updateWidget(wid, widget)
             .then(widget => dispatch({type: "UPDATE_WIDGET", updateWidget: widget}))
     },
