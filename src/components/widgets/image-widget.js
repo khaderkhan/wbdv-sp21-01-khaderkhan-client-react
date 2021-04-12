@@ -30,7 +30,7 @@ const ImageWidget = ({widget, setWidget, editing}) => {
                             <>
                                 <img src={widget.src} width={widget.width} height={widget.height}></img>
                             </>
-                        }
+             }
         </div>
     )
 }
