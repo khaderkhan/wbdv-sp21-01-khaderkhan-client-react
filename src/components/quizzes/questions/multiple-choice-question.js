@@ -3,7 +3,7 @@ import React, {useState}  from "react";
 const MultipleChoiceQuestion = ({question}) => {
     const [answer, setAnswer] = useState(null)
     const [isCorrectAnswer, setIsCorrectAnswer] = useState(null)
-    console.log("question here====>>>", question)
+    //console.log("question here====>>>", question)
     return(
         <>
             <h4>{question.question}
@@ -25,7 +25,7 @@ const MultipleChoiceQuestion = ({question}) => {
                             <li className="list-group-item">
                                 <label>
                                     <input type="radio"
-                                    onClick={() => setAnswer(choice)}
+                                    onClick={() => {setAnswer(choice); question.answer=choice }}
                                     name={question._id}/>
                                     {choice}
                                     <br/>
@@ -43,7 +43,7 @@ const MultipleChoiceQuestion = ({question}) => {
                                    <li className="list-group-item list-group-item-success">
                                        <label>
                                            <input type="radio"
-                                           onClick={() => setAnswer(choice)}
+                                           onClick={() => {setAnswer(choice); question.answer=choice }}
                                            checked = {choice == answer? true: false}
                                            name={question._id}/>
                                            {choice}
@@ -58,7 +58,7 @@ const MultipleChoiceQuestion = ({question}) => {
                                    <li className="list-group-item">
                                        <label>
                                            <input type="radio"
-                                           onClick={() => setAnswer(choice)}
+                                           onClick={() => {setAnswer(choice); question.answer=choice }}
                                            checked = {choice == answer ? true: false}
                                            name={question._id}/>
                                            {choice}
@@ -77,7 +77,7 @@ const MultipleChoiceQuestion = ({question}) => {
                                    <li className= {choice == choice === question.correct? "list-group-item list-group-item-success": "list-group-item list-group-item-danger" }>
                                        <label>
                                            <input type="radio"
-                                           onClick={() => setAnswer(choice)}
+                                           onClick={() => {setAnswer(choice); question.answer=choice }}
                                            checked = {choice == answer? true: false}
                                            name={question._id}/>
                                            {choice}
@@ -91,11 +91,6 @@ const MultipleChoiceQuestion = ({question}) => {
 
                 </ul>
            </div>
-           <br/>
-            <button onClick={() => setIsCorrectAnswer(answer == question.correct)} style={{backgroundColor: "green", borderRadius: "5px"}}>
-              Grade
-            </button>
-            <br/>
             <br/>
         </>
     )
