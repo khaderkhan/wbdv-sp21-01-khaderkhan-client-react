@@ -1,14 +1,16 @@
+const URL = "https://mubaris-node-cs5610.herokuapp.com"
+
 export const findAllQuizzes = (quizId) =>
-    fetch("http://localhost:3000/api/quizzes")
+    fetch("https://mubaris-node-cs5610.herokuapp.com/api/quizzes")
                 .then(response => response.json())
 
 export const fetchQuizScore = (quizId) => 
-    fetch(`http://localhost:3000/api/quizzes/${quizId}/attempts`)
+    fetch(`https://mubaris-node-cs5610.herokuapp.com/api/quizzes/${quizId}/attempts`)
                 .then(response => response.json())
 
 
 export const submitQuiz = (quizId, questions) => 
-    fetch(`http://localhost:3000/api/quizzes/${quizId}/attempts`, {
+    fetch(`https://mubaris-node-cs5610.herokuapp.com/api/quizzes/${quizId}/attempts`, {
         method: 'POST',
         body: JSON.stringify(questions),
         headers: {

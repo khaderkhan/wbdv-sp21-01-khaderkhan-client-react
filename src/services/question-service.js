@@ -1,5 +1,5 @@
 export const findAllQuestions = (quizId) =>
-    fetch(`http://localhost:3000/api/quizzes/${quizId}/questions`)
+    fetch(`https://mubaris-node-cs5610.herokuapp.com/api/quizzes/${quizId}/questions`)
                         .then(response => response.json())
 
 export default {findAllQuestions}
