@@ -1,5 +1,5 @@
-//const WIDGET_URL = "https://algo-5610.herokuapp.com/api"
-const WIDGET_URL = "http://localhost:8080/api"
+const WIDGET_URL = "https://algo-5610.herokuapp.com/api"
+//const WIDGET_URL = "http://localhost:8080/api"
 
 
 export const createWidget = (topicId, widget) =>
